@@ -6,7 +6,7 @@ const User = require('../../models/userModel');
 const Review = require('../../models/reviewModel');
 
 dotenv.config({
-  path: './config.env',
+  path: './config.env'
 });
 
 const DB = process.env.DATABASE.replace(
@@ -18,7 +18,7 @@ mongoose
   .connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: false,
+    useFindAndModify: false
   })
   .then(() => {
     console.log('DB connection sucessful');
@@ -37,9 +37,9 @@ const importData = async () => {
     // await Tour.create(tours);
     await User.create(users, { validateBeforeSave: false });
     // await Review.create(reviews);
-    console.log('Data imported successfully');
+    // console.log('Data imported successfully');
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
   process.exit();
 };
@@ -51,9 +51,9 @@ const deleteAllData = async () => {
     // await Tour.deleteMany();
     await User.deleteMany();
     // await Review.deleteMany();
-    console.log('Data deleted successfully');
+    // console.log('Data deleted successfully');
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
   process.exit();
 };
@@ -64,4 +64,4 @@ if (process.argv[2] === '--import') {
   deleteAllData();
 }
 
-console.log(process.argv);
+// console.log(process.argv);
